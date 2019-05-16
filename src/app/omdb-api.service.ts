@@ -12,7 +12,7 @@ export class OmdbApiService {
   constructor(private _http: HttpClient) { }
 
   private _apiUrl = "http://www.omdbapi.com/?t=";
-  private _apiKey = "&apikey=f15dd281" 
+  private _apiKey = "&apikey=*******" 
 
   getTVShowData(tvShowName: string): Observable<ITVShowDetails>{
       return this._http.get<ITVShowDetails>(this._apiUrl + tvShowName + this._apiKey);
