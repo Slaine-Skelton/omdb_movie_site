@@ -1,0 +1,30 @@
+<div class="ui three column grid segment">
+    <div class="ui column">
+      <h2>{{tvShowDetails.Title}}</h2>
+      <img [src]="tvShowDetails.Poster">
+    </div>
+    <div class="ui column">
+      <p>Year: {{tvShowDetails.Year}}</p>
+      <p>Released: {{tvShowDetails.Released}}</p>
+      <p>Genre: {{tvShowDetails.Genre}}</p>
+      <p>Seasons: {{tvShowDetails.totalSeasons}}</p>
+      <p>Ratings: </p>
+      <p *ngFor="let rating of tvShowDetails.Ratings">
+          {{ rating.Source }}: {{rating.Value}}
+      </p>
+      <p *ngIf="tvShowDetails.MyReview">My Review: {{tvShowDetails.MyReview}}</p>
+    </div>
+    <div class="ui column">
+        <button 
+          class="ui primary button"
+          (click)="removeFromFavourites()">Remove from Favourites</button>
+          <p></p>
+        <form>
+          <textarea name="comments" placeholder="Add a short review" #comments></textarea>
+          <p></p>
+          <button
+          class="ui primary button"
+          (click)="addReview(comments.value)">Add your review</button>
+        </form>
+    </div>
+</div>
